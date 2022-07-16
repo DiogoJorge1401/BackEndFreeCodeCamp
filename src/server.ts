@@ -19,3 +19,5 @@ app.use("/api", routes);
 app.listen(3000, () =>
   console.log("Server is Running on http://localhost:3000")
 );
+
+export default app
