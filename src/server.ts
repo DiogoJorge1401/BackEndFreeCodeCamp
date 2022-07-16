@@ -1,16 +1,21 @@
-import e from 'express'
-import { routes } from './routes'
+import e from "express";
+import cors from "cors";
+import { routes } from "./routes";
 
-const app = e()
+const app = e();
 
-app.use(e.json())
+app.use(cors());
 
-app.use('/public', e.static(`${__dirname}/public`))
+app.use(e.json());
 
-app.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/views/index.html`)
-})
+app.use("/public", e.static(`${__dirname}/public`));
 
-app.use('/api', routes)
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/views/index.html`);
+});
 
-app.listen(3000, () => console.log('Server is Running on http://localhost:3000'))
+app.use("/api", routes);
+
+app.listen(3000, () =>
+  console.log("Server is Running on http://localhost:3000")
+);
