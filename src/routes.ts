@@ -14,7 +14,7 @@ routes.get('/:date?', (req, res) => {
     return res.json({ error: "Invalid Date" })
 
   const unix = parsedDate.getTime()
-  const utc = parsedDate.toUTCString()
+  const utc = +parsedDate.toUTCString()
 
   return res.json({ unix, utc })
 })
